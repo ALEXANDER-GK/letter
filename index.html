@@ -10,14 +10,14 @@
 	<script>
 		function sendSurpriseMessage() {
 			// Your Twilio account SID and auth token
-			var accountSid = 'your_account_sid';
-			var authToken = 'your_auth_token';
+			var accountSid = 'AC9c1de682f2793aee4b5c4d60eae2cf13';
+			var authToken = '47a9e7fad5c01dc0b9e6a0e69286fbbc';
 
 			// The message you want to send
 			var message = "Hey gorgeous! I have a surprise for you tonight. Meet me at 7pm at our favorite restaurant. Love you!";
 
 			// The recipient's phone number on WhatsApp (include country code and without any spaces or dashes)
-			var whatsappNumber = 'whatsapp:+1234567890';
+			var whatsappNumber = '+918696429200';
 
 			// Use the Twilio API to send the message
 			$.ajax({
@@ -25,7 +25,7 @@
 				type: 'POST',
 				data: {
 					To: whatsappNumber,
-					From: 'whatsapp:+14155238886',
+					From: '+919502927593',
 					Body: message
 				},
 				headers: {
