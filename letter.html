@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Surprise Message</title>
+</head>
+<body>
+	<button onclick="sendSurpriseMessage()">Click here for a surprise!</button>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		function sendSurpriseMessage() {
+			// Your Twilio account SID and auth token
+			var accountSid = 'your_account_sid';
+			var authToken = 'your_auth_token';
+
+			// The message you want to send
+			var message = "Hey gorgeous! I have a surprise for you tonight. Meet me at 7pm at our favorite restaurant. Love you!";
+
+			// The recipient's phone number on WhatsApp (include country code and without any spaces or dashes)
+			var whatsappNumber = 'whatsapp:+1234567890';
+
+			// Use the Twilio API to send the message
+			$.ajax({
+				url: 'https://api.twilio.com/2010-04-01/Accounts/' + accountSid + '/Messages.json',
+				type: 'POST',
+				data: {
+					To: whatsappNumber,
+					From: 'whatsapp:+14155238886',
+					Body: message
+				},
+				headers: {
+					'Authorization': 'Basic ' + btoa(accountSid + ':' + authToken),
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			}).done(function(data) {
+				// Display a confirmation message to the user
+				alert('Surprise message sent!');
+			}).fail(function(error) {
+				// Display an error message to the user if the message failed to send
+				alert('Error sending surprise message: ' + error.responseText);
+			});
+		}
+	</script>
+</body>
+</html>
